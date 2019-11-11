@@ -1,5 +1,5 @@
 import './assets/stylesheets/main.scss';
-/* import Canvas from './assets/scripts/app';
+import Canvas from './assets/scripts/canvas';
 
 const canvas = new Canvas();
-canvas.initial(); */
+canvas.initial();
