@@ -1,13 +1,33 @@
-const jsdom = require('jsdom');
+const { JSDOM } = require('jsdom');
 
-const { JSDOM } = jsdom;
+const { loadImage } = require('canvas');
 
-class Canvas {
-  static async initial() {
-    this.dom = await JSDOM.fromFile('../../index.html', {
+/* const ctx = canvas.getContext('2d'); */
+
+export default class Canvas {
+  static dom;
+
+  static canvas;
+
+  static ctx;
+
+  static initial() {
+    this.dom = this.load('../../index.html');
+    /*     this.dom = await JSDOM.fromFile('../../index.html', {
       resources: 'usable',
       runScripts: 'dangerously',
-    });
+    }); */
+
+    const image = this.load('../img/pony.png');
+
+    console.log('Dom !!!!!!!: \n ${this.dom}');
+
+    this.canvas = this.dom.window.document.getElementById('canvas');
+
+    this.ctx = this.canvas.getContext('2d');
+
+    this.draw(image, 32, 32);
+
 
     const switchPanel = this.dom.window.document
       .querySelector('.switch_panel');
@@ -18,8 +38,23 @@ class Canvas {
     switchPanel
       .querySelector('.switch32x32')
       .addEventListener('change', this.onChange32x32);
-    switchPanel.querySelector('.switch4x4')
+    switchPanel.querySelector('.switch32x32')
       .dispatchEvent(new this.dom.window.Event('change'));
+  }
+
+  static async load(src) {
+    let data = null;
+
+    try {
+      data = await fetch(src);
+    } catch (error) {
+      console.log(`Can't load resource ${error}`);
+    }
+    return data;
+  }
+
+  static draw(image, width, height, x = 0, y = 0) {
+    this.ctx.drawImage(image, x, y, width, height);
   }
 
   static onChange4x4 = () => {
@@ -48,5 +83,3 @@ class Canvas {
     this.ctx.putImageData(imgData, 0, 0);
   };
 }
-
-export default Canvas;
