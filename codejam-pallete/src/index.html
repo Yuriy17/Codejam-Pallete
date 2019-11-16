@@ -144,7 +144,7 @@
                 </ul>
             </div>
         </div>
-        <div class="right_panel_wrapper">
+        <!--         <div class="right_panel_wrapper">
             <div class="switch_panel panel">
                 <ul class="switch_panel--list">
                     <li class="switch_panel--item">
@@ -167,9 +167,18 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="canvas_wrapper">
+            <div class="load_panel">
+                <div class="load_image">
+                    <a href="#" class="search_button">Load</a>
+                    <input type="text" class="search_input" value="Minsk">
+                </div>
+                <a href="#">B&W</a>
+            </div>
             <canvas id="canvas" class="canvas"></canvas>
+            <input id="input" class="range_slider" type="range" min="0" value="1" max="6" step="1">
+            <div class="range_slider_output"><span>32</span></div>
         </div>
     </main>
 </body>

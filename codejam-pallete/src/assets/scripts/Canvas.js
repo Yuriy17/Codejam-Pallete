@@ -1,22 +1,18 @@
-const { JSDOM } = require('jsdom');
-
-const { loadImage } = require('canvas');
-
 /* const ctx = canvas.getContext('2d'); */
 
 export default class Canvas {
-  static dom;
+  /* static dom;
 
   static canvas;
 
   static ctx;
 
-  static initial() {
+  constructor(template, sizes) {
+
+  }
+
+  static init() {
     this.dom = this.load('../../index.html');
-    /*     this.dom = await JSDOM.fromFile('../../index.html', {
-      resources: 'usable',
-      runScripts: 'dangerously',
-    }); */
 
     const image = this.load('../img/pony.png');
 
@@ -81,5 +77,5 @@ export default class Canvas {
       32,
     );
     this.ctx.putImageData(imgData, 0, 0);
-  };
+  }; */
 }
