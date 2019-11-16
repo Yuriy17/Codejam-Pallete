@@ -7,7 +7,7 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['@babel/polyfill', './src/main.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
@@ -40,14 +40,14 @@ module.exports = {
         'sass-loader',
       ],
     },
-    /*              {
-                            test: /\.svg$/,
-                            loader: 'svg-sprite-loader',
-                            options: {
-                              extract: true,
-                              spriteFilename: './assets/icons/icons.svg',
-                            }
-                        },  */
+    {
+      test: /\.svg$/,
+      loader: 'svg-sprite-loader',
+      options: {
+        extract: true,
+        spriteFilename: './assets/icons/icons.svg',
+      },
+    },
     /*              {
                             test: /\.svg$/,
                             use: [{
@@ -70,12 +70,12 @@ module.exports = {
       }],
     },
     {
-      test: /\.(png|jpe?g|gif)$/i,
-      include: path.resolve(__dirname, 'src/data'),
+      test: /\.(png|jpe?g|gif|jpg)$/i,
+      include: path.resolve(__dirname, 'src/assets/img'),
       use: [{
         loader: 'file-loader',
         options: {
-          outputPath: 'data',
+          outputPath: 'img',
           name: '[name].[ext]',
         },
       }],
@@ -113,9 +113,11 @@ module.exports = {
   devServer: {
     index: 'index.html',
     contentBase: path.join(__dirname, 'dist'),
+    watchContentBase: true,
     compress: true,
     port: 9000,
     writeToDisk: true,
+    overlay: false,
     open: true, // open in chrome
   },
 };

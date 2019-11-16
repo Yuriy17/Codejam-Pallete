@@ -61,6 +61,19 @@
                 <clipPath id="icon-paint_clip0">
                     <rect width="20" height="18" fill="white" transform="translate(2 3)" />
                 </clipPath>
+                <symbol viewBox="0 0 20 20" fill="none" id="icon-pencil">
+                    <g clip-path="url(#icon-pencil_clip0)">
+                        <path
+                            d="M19.4493 5.55084L17.6485 7.35162C17.4649 7.53521 17.168 7.53521 16.9844 7.35162L12.6485 3.01568C12.4649 2.83209 12.4649 2.53522 12.6485 2.35162L14.4493 0.550842C15.1797 -0.179626 16.3672 -0.179626 17.1016 0.550842L19.4493 2.8985C20.1836 3.62897 20.1836 4.81646 19.4493 5.55084ZM11.1016 3.8985L0.843801 14.1563L0.015676 18.9024C-0.0976053 19.543 0.460989 20.0977 1.10161 19.9883L5.84771 19.1563L16.1055 8.89849C16.2891 8.7149 16.2891 8.41803 16.1055 8.23443L11.7696 3.8985C11.5821 3.7149 11.2852 3.7149 11.1016 3.8985ZM4.84771 13.2774C4.63286 13.0626 4.63286 12.7188 4.84771 12.504L10.8633 6.48834C11.0782 6.2735 11.4219 6.2735 11.6368 6.48834C11.8516 6.70318 11.8516 7.04693 11.6368 7.26178L5.62114 13.2774C5.4063 13.4922 5.06255 13.4922 4.84771 13.2774ZM3.43755 16.5626H5.31255V17.9805L2.79302 18.4219L1.57818 17.2071L2.01958 14.6876H3.43755V16.5626Z"
+                            fill="black" fill-opacity="0.5413" />
+                    </g>
+                    <defs>
+
+                    </defs>
+                </symbol>
+                <clipPath id="icon-pencil_clip0">
+                    <rect width="20" height="20" fill="white" />
+                </clipPath>
                 <symbol viewBox="0 0 24 24" fill="none" id="icon-transform">
                     <path
                         d="M2 8.56249V7.93749C2 7.41972 2.41973 6.99999 2.9375 6.99999H17V5.12499C17 4.29034 18.0117 3.87335 18.6004 4.46206L21.7254 7.58706C22.0915 7.95319 22.0915 8.54679 21.7254 8.91288L18.6004 12.0379C18.0139 12.6243 17 12.2131 17 11.375V9.49999H2.9375C2.41973 9.49999 2 9.08026 2 8.56249ZM21.0625 14.5H7V12.625C7 11.7924 5.98977 11.3719 5.39957 11.9621L2.27457 15.0871C1.90848 15.4532 1.90848 16.0468 2.27457 16.4129L5.39957 19.5379C5.9866 20.1249 7 19.7124 7 18.875V17H21.0625C21.5803 17 22 16.5803 22 16.0625V15.4375C22 14.9197 21.5803 14.5 21.0625 14.5Z"
@@ -100,9 +113,9 @@
                     <li class="tools_panel--item">
                         <a href="#" class="tools_panel--link">
                             <svg class="tools_panel--icon">
-                                <use xlink:href="#icon-move"></use>
+                                <use xlink:href="#icon-pencil"></use>
                             </svg>
-                            Move
+                            Pencil
                         </a>
                     </li>
                     <li class="tools_panel--item">
@@ -177,8 +190,8 @@
                 <a href="#">B&W</a>
             </div>
             <canvas id="canvas" class="canvas"></canvas>
-            <input id="input" class="range_slider" type="range" min="0" value="1" max="6" step="1">
-            <div class="range_slider_output"><span>32</span></div>
+            <input id="input_slider" class="range_slider" type="range" min="1" value="6" max="6" step="1">
+            <div class="range_slider_output"><span>512</span></div>
         </div>
     </main>
 </body>

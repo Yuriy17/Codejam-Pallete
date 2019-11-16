@@ -1,11 +1,19 @@
 import './assets/stylesheets/main.scss';
 import Canvas from './assets/scripts/Canvas';
+
+
 /* import template from './index.html'; */
 
 // const template = require('html-loader!./index.html');
 
-const canvasHTML = document.getElementById('canvas');
-console.log(`aaaaaaaaaaa${canvasHTML}`);
-const sizes = [128, 256, 512];
-const canvas = new Canvas(canvasHTML, sizes);
-canvas.loadCityImage('London');
+
+const canvas = new Canvas();
+console.log(`canvas Object = ${canvas}`);
+// canvas.loadCityImage('London');
+
+// svg sprite
+
+/* function requireAll(r) {
+  r.keys().forEach(r);
+}
+requireAll(require.context('./assets/icons', true, /\.svg$/)); */

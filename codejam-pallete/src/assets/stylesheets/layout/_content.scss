@@ -10,6 +10,7 @@
     width: 15.8333333%;
     justify-content: space-around;
     min-height: 589px;
+    min-width: 300px;
 }
 
 .tools_panel {
@@ -94,32 +95,11 @@
 
     &--link {
         text-decoration: none;
+        outline: none;
     }
 
     &--link_circle{
         margin-right: 6%;
-    }
-}
-
-.switch_panel {
-
-    flex-grow: 1;
-
-    // .switch_panel--list
-
-    &--list {}
-
-    // .switch_panel--item
-
-    &--item {
-        padding: 5%;
-    }
-
-    // .switch_panel--link
-
-    &--link {
-        text-decoration: none;
-        min-width: auto !important;
     }
 }
 
@@ -128,7 +108,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 656px;
+    min-height: 665px;
 } 
 
 .canvas{
