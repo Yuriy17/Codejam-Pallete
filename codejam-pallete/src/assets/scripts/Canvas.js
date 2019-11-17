@@ -9,6 +9,8 @@ export default class Canvas {
 
   ctx;
 
+  canvasWrapper;
+
   constructor() {
     this.init();
   }
@@ -17,17 +19,41 @@ export default class Canvas {
   init() {
     /* const image = new Image();
     image.src = 'img/sculpture.png'; */
-    const canvasWrapper = document.querySelector('canvas_wrapper');
-    this.canvasNode = canvasWrapper.querySelector('canvas');
-    this.canvasNode.width = 512;
-    this.canvasNode.height = 512;
+    this.canvasWrapper = document.querySelector('.canvas_wrapper');
+    const inputRange = new Slider(this.canvasWrapper);
+    this.canvasNode = this.canvasWrapper.querySelector('.canvas');
     this.ctx = this.canvasNode.getContext('2d');
-    const img = new Image();
-    img.src = imgSrc;
-    img.onload = () => {
-      this.ctx.drawImage(img, 0, 0, 512, 512);
+    const image = new Image();
+    image.src = imgSrc;
+
+    image.onload = () => {
+      [inputRange.sliderOut.innerHTML,
+        this.canvasNode.width,
+        this.canvasNode.height] = new Array(3).fill(
+        inputRange.currentSize,
+      );
+      this.ctx.drawImage(
+        image, 0, 0, this.canvasNode.width, this.canvasNode.height,
+      );
     };
-    const slider = new Slider(canvasWrapper);
+
+    inputRange.slider.addEventListener('input', () => {
+      [inputRange.sliderOut.innerHTML,
+        this.canvasNode.width,
+        this.canvasNode.height] = new Array(3).fill(
+        inputRange.currentSize,
+      );
+      this.ctx.drawImage(
+        image, 0, 0, this.canvasNode.width, this.canvasNode.height,
+      );
+    });
+
+
+    /*     this.canvasNode.width = 512;
+    this.canvasNode.height = 512; */
+
+
+    console.log(`Slider Object = ${this.inputRange}`);
     /*     Canvas.load('../img/sculpture.png');
     this.draw(image, 512, 512); */
 

@@ -1,7 +1,6 @@
 import './assets/stylesheets/main.scss';
 import Canvas from './assets/scripts/Canvas';
 
-
 /* import template from './index.html'; */
 
 // const template = require('html-loader!./index.html');
