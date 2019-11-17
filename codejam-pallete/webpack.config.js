@@ -7,14 +7,15 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const path = require('path');
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/main.js'],
+  entry: ['./src/main.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
   },
   mode: 'development',
   devtool: 'inline-source-map',
-  target: 'node',
+  target: 'web',
   module: {
     rules: [{
       test: /\.html$/,
@@ -111,13 +112,15 @@ module.exports = {
     }),
   ],
   devServer: {
-    index: 'index.html',
     contentBase: path.join(__dirname, 'dist'),
+    index: 'index.html',
     watchContentBase: true,
     compress: true,
     port: 9000,
     writeToDisk: true,
-    overlay: false,
-    open: true, // open in chrome
+    overlay: false, // error on full page
+    open: true, // open in browser
+    inline: false, // iframe mode, which uses an <iframe> under a notification bar with messages about the build
+    // Inline mode is recommended for Hot Module Replacement as it includes an HMR trigger from the websocket
   },
 };
