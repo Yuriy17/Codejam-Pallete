@@ -15,7 +15,7 @@ module.exports = {
   },
   mode: 'development',
   devtool: 'inline-source-map',
-  target: 'web',
+  // target: 'web',
   module: {
     rules: [{
       test: /\.html$/,
@@ -49,17 +49,6 @@ module.exports = {
         spriteFilename: './assets/icons/icons.svg',
       },
     },
-    /*              {
-                            test: /\.svg$/,
-                            use: [{
-                                loader: "file-loader",
-                                options: {
-                                    outputPath: "assets/icons",
-                                    name: '[name].[ext]',
-                                }
-                            }]
-
-                        },   */
     {
       test: /\.(woff|woff2|ttf|otf|eot)$/i,
       use: [{
@@ -120,7 +109,15 @@ module.exports = {
     writeToDisk: true,
     overlay: false, // error on full page
     open: true, // open in browser
-    inline: false, // iframe mode, which uses an <iframe> under a notification bar with messages about the build
-    // Inline mode is recommended for Hot Module Replacement as it includes an HMR trigger from the websocket
+    hot: false,
+    inline: false,
+
+    historyApiFallback: true,
+    watchOptions: { aggregateTimeout: 300, poll: 1000 },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
   },
 };
