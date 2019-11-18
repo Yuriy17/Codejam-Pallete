@@ -23,6 +23,7 @@ module.exports = {
         loader: 'html-loader',
         options: {
           minimize: false,
+          root: path.resolve(__dirname, 'assets'),
         },
       }],
     },
@@ -65,7 +66,7 @@ module.exports = {
       use: [{
         loader: 'file-loader',
         options: {
-          outputPath: 'img',
+          outputPath: '/img',
           name: '[name].[ext]',
         },
       }],

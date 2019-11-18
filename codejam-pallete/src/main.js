@@ -2,6 +2,8 @@ import './assets/stylesheets/main.scss';
 import './assets/img/favicon.ico';
 import Canvas from './assets/scripts/Canvas';
 
+/* require('./index.html'); */
+
 /* import template from './index.html'; */
 
 // const template = require('html-loader!./index.html');

@@ -1,7 +1,5 @@
 import Slider from './Slider';
 
-const imgSrc = require('../img/sculpture.jpg');
-
 export default class Canvas {
   canvasNode;
 
@@ -21,9 +19,8 @@ export default class Canvas {
     this.canvasNode = this.canvasWrapper.querySelector('.canvas');
     this.ctx = this.canvasNode.getContext('2d');
     this.ctx.imageSmoothingEnabled = false;
-    let img = new Image();
-    img.src = imgSrc;
 
+    let img = this.canvasWrapper.querySelector('img');
     img.onload = () => {
       [inputRange.sliderOut.innerHTML,
         this.canvasNode.width,
@@ -81,7 +78,9 @@ export default class Canvas {
     if (isShiftable) {
       this.ctx.drawImage(img, 0, 0, img.width, img.height,
         centerShiftX, centerShiftY, img.width * ratio, img.height * ratio);
-      this.imageData = this.ctx.getImageData(0, 0, this.canvasNode.width, this.canvasNode.height);
+      this.imageData = this.ctx.getImageData(
+        0, 0, this.canvasNode.width, this.canvasNode.height,
+      );
     } else {
       this.ctx.drawImage(img, 0, 0, img.width, img.height,
         centerShiftX, centerShiftY, img.width, img.height);
@@ -107,7 +106,7 @@ export default class Canvas {
     console.log(this.imageData.data);
   }
 
-  drawLine(startX, startY, endX, endY) {
+/*   drawLine(startX, startY, endX, endY) {
     let x0 = Math.floor(startX / this.canvasNode.width);
     let y0 = Math.floor(startY / this.canvasNode.height);
     const x1 = Math.floor(endX / this.canvasNode.width);
@@ -135,5 +134,5 @@ export default class Canvas {
     [imgData.data[0], imgData.data[1], imgData.data[2], imgData.data[3]] = [...colorArr];
     const { data } = canvas.ctx.getImageData(x, y, 1, 1);
     if (data[3] <= imgData.data[3]) canvas.ctx.putImageData(imgData, x, y);
-  }
+  } */
 }
