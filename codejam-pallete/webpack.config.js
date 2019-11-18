@@ -71,6 +71,16 @@ module.exports = {
       }],
     },
     {
+      test: /\.ico$/i,
+      include: path.resolve(__dirname, 'src/assets/img'),
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        },
+      }],
+    },
+    {
       enforce: 'pre',
       test: /\.js$/,
       exclude: /node_modules/,
@@ -109,8 +119,8 @@ module.exports = {
     writeToDisk: true,
     overlay: false, // error on full page
     open: true, // open in browser
-    hot: false,
     inline: false,
+    hot: false,
 
     historyApiFallback: true,
     watchOptions: { aggregateTimeout: 300, poll: 1000 },

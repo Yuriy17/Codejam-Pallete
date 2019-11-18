@@ -1,4 +1,5 @@
 import './assets/stylesheets/main.scss';
+import './assets/img/favicon.ico';
 import Canvas from './assets/scripts/Canvas';
 
 /* import template from './index.html'; */
